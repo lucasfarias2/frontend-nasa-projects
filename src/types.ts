@@ -1,9 +1,7 @@
 import express from 'express';
 
 declare global {
-  export type TCard = string;
-  export type TSelectedCards = TCard[];
-  export type TData = TCard[];
+  export type TSelectedCards = ICard[];
   export type TWindow = typeof window & {
     __PRELOADED_STATE__: object;
   };
@@ -17,7 +15,7 @@ declare global {
   }
 
   export interface IInitialState {
-    data: TData;
+    cards: ICard[];
     selectedItems: TSelectedCards;
   }
 
@@ -29,11 +27,16 @@ declare global {
 
   export interface IAction {
     type: string;
-    payload?: { card?: TCard; };
+    payload?: { card?: ICard };
   }
 
   export interface IState {
-    data: TData;
+    cards: ICard[];
     selectedCards?: TSelectedCards;
+  }
+
+  export interface ICard {
+    id: string;
+    lastUpdated: string;
   }
 }

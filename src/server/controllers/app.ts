@@ -1,10 +1,12 @@
 import { NextFunction } from 'express';
 import App from '../../shared/views/app';
+import cardService from '../services/card';
 
 const fetch = async (_req: IRequest, res: IResponse, next: NextFunction) => {
   try {
-    // res.locals.initialState = await itemService.fetchItems();
+    const cards = await cardService.fetchCards();
     res.locals.initialState = {};
+    res.locals.initialState.cards = cards;
     res.locals.initialState.selectedItems = [];
   } catch (e) {
     // tslint:disable-next-line: no-console

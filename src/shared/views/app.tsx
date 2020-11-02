@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import Script from '../modules/script';
 import Style from '../modules/style';
 import createStore from '../../client/utils/create-store';
-import reducers from '../..//client/reducers/app';
+import reducers from '../../client/reducers/app';
+import Card from '../widgets/card/card';
 
 const namespace = 'app';
 
@@ -14,7 +15,12 @@ const App = ({ initialState }: IComponent) => {
       <Script>{`window.__PRELOADED_STATE__ = ${serialize({ initialState }, { isJSON: true })}`}</Script>
       <Style src={`app`} />
       <Script src={`app`} />
-      <section className={namespace}>Content</section>
+      <section className={namespace}>
+        {initialState.cards &&
+          initialState.cards.map((card: ICard) => {
+            return <Card key={card.id}>{card.id}</Card>;
+          })}
+      </section>
     </Provider>
   );
 };
