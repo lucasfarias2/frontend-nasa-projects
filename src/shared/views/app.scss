@@ -1,0 +1,12 @@
+$app-prefix: 'app';
+$ui-prefix: 'ui';
+
+@import '../widgets/card/card';
+
+* {
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+body {
+  padding: 24px;
+}
