@@ -16,6 +16,16 @@ class CardService {
       return {};
     }
   }
+
+  public async fetchCard(id: number) {
+    const response = await axios.get(`${this.API_URL}/card/${id}`);
+
+    if (response.data) {
+      return response.data;
+    } else {
+      return {};
+    }
+  }
 }
 
 export default new CardService();

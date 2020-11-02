@@ -9,4 +9,24 @@ $ui-prefix: 'ui';
 
 body {
   padding: 24px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f5f8fa;
+}
+
+.#{$app-prefix}-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 16px;
+
+  &__card {
+    min-height: 200px;
+
+    &--loading {
+      p {
+        color: grey;
+      }
+    }
+  }
 }

@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 export default {
   devtool: 'source-map',
   entry: {
-    'app': path.join(__dirname, 'src/client/entries/app.tsx'),
+    app: path.join(__dirname, 'src/client/entries/app.tsx'),
   },
   output: {
     filename: '[name].js',
@@ -13,8 +13,8 @@ export default {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     fallback: {
-      "buffer": false,
-    }
+      buffer: require.resolve('buffer/'),
+    },
   },
   module: {
     rules: [

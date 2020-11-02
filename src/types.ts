@@ -20,6 +20,8 @@ declare global {
   }
 
   export interface IComponent {
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
     children?: React.ReactNode;
     className?: string;
     initialState?: IInitialState;
@@ -36,7 +38,12 @@ declare global {
   }
 
   export interface ICard {
-    id: string;
+    id: number;
     lastUpdated: string;
+    title: string;
+    status: string;
+    startDate: string;
+    endDate: string;
+    description: string;
   }
 }

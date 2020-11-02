@@ -1,13 +1,13 @@
 import { NextFunction } from 'express';
 import ProjectService from '../services/project';
 
-const cardsController = async (_req: IRequest, res: IResponse, next: NextFunction) => {
+const cardController = async (req: IRequest, res: IResponse, next: NextFunction) => {
   try {
-    res.json(await ProjectService.fetchProjects());
+    res.json(await ProjectService.fetchProjectDetails(req.params.id));
   } catch (e) {
     // tslint:disable-next-line: no-console
     console.error(e);
   }
 };
 
-export default cardsController;
+export default cardController;
