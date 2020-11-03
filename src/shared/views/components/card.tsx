@@ -6,8 +6,8 @@ import CardService from '../../../server/services/card';
 
 const namespace = 'app-cards__card';
 
-const FeaturedCard = (card: ICard) => {
-  if (!card) {
+const Card = (props: ICard) => {
+  if (!props) {
     return null;
   }
 
@@ -16,13 +16,13 @@ const FeaturedCard = (card: ICard) => {
   const [isCardSelected, setIsCardSelected] = React.useState(false);
 
   const fetchCardDetails = async (id: number) => {
-    const cardResponse = await CardService.fetchCard(card.id);
+    const cardResponse = await CardService.fetchCard(props.id);
     setCardModel(cardResponse);
   };
 
   React.useEffect(() => {
     if (!cardModel) {
-      fetchCardDetails(card.id);
+      fetchCardDetails(props.id);
     }
   });
 
@@ -36,6 +36,13 @@ const FeaturedCard = (card: ICard) => {
 
   const handleOnSelect = () => {
     setIsCardSelected(!isCardSelected);
+    if (props.selectCard && !isCardSelected) {
+      props.selectCard(props.id);
+    }
+
+    if (props.unselectCard && isCardSelected) {
+      props.unselectCard(props.id);
+    }
   };
 
   return (
@@ -45,18 +52,20 @@ const FeaturedCard = (card: ICard) => {
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
     >
-      <SelectBox selected={isCardSelected} onClick={handleOnSelect} />
+      <h1>{props.id}</h1>
+      {showSelectBox || isCardSelected ? <SelectBox selected={isCardSelected} onClick={handleOnSelect} /> : null}
       {cardModel ? (
         <>
           {cardModel.title ? <h1>{cardModel.title}</h1> : null}
+          {cardModel.status ? <p>Status: {cardModel.status}</p> : null}
           {cardModel.startDate ? <p>Start date: {cardModel.startDate}</p> : null}
           {cardModel.endDate ? <p>End date: {cardModel.endDate}</p> : null}
           {cardModel.description ? <p>{cardModel.description}</p> : null}
         </>
       ) : null}
-      <p>Last updated: {card.lastUpdated}</p>
+      <p>Last updated: {props.lastUpdated}</p>
     </Container>
   );
 };
 
-export default FeaturedCard;
+export default Card;

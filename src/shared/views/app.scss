@@ -2,6 +2,7 @@ $app-prefix: 'app';
 $ui-prefix: 'ui';
 
 @import '../controls/select-box';
+@import '../controls/button';
 @import '../widgets/container/container';
 
 * {

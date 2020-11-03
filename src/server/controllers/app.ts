@@ -7,7 +7,7 @@ const fetch = async (_req: IRequest, res: IResponse, next: NextFunction) => {
     const cards = await cardService.fetchCards();
     res.locals.initialState = {};
     res.locals.initialState.cards = cards;
-    res.locals.initialState.selectedItems = [];
+    res.locals.initialState.selectedCards = [];
   } catch (e) {
     // tslint:disable-next-line: no-console
     console.error(e);

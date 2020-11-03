@@ -12,8 +12,13 @@
   align-items: center;
 }
 
+.#{$ui-prefix}-select-box:hover {
+  background-color: #ff7d7d;
+  cursor: pointer;
+}
+
 .#{$ui-prefix}-select-box__check {
-  background-color: #e05757;
+  background-color: #ff6868;
   height: 18px;
   width: 18px;
   border-radius: 50%;

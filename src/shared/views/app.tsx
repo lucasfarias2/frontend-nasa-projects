@@ -5,7 +5,7 @@ import Script from '../modules/script';
 import Style from '../modules/style';
 import createStore from '../../client/utils/create-store';
 import reducers from '../../client/reducers/app';
-import Cards from './components/cards';
+import FeaturedCards from './components/cards.feature';
 import Paginator from './components/paginator';
 
 const App = ({ initialState }: IComponent) => {
@@ -15,7 +15,7 @@ const App = ({ initialState }: IComponent) => {
       <Style src={`app`} />
       <Script src={`app`} />
       <h1>NASA Projects</h1>
-      <Cards cards={initialState.cards} />
+      <FeaturedCards cards={initialState.cards} selectedCards={initialState.selectedCards} />
       <Paginator pages={5} />
     </Provider>
   );

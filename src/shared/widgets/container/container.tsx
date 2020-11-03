@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const namespace = 'ui__container';
+const namespace = 'ui-container';
 
 const Container = ({ className, children, onMouseEnter, onMouseLeave, onClick }: IComponent) => (
   <div

@@ -1,7 +1,7 @@
 import express from 'express';
 
 declare global {
-  export type TSelectedCards = ICard[];
+  export type TSelectedCards = number[];
   export type TWindow = typeof window & {
     __PRELOADED_STATE__: object;
   };
@@ -16,7 +16,8 @@ declare global {
 
   export interface IInitialState {
     cards: ICard[];
-    selectedItems: TSelectedCards;
+    selectedCards: TSelectedCards;
+    currentPage: number;
   }
 
   export interface IComponent {
@@ -36,6 +37,7 @@ declare global {
   export interface IState {
     cards: ICard[];
     selectedCards?: TSelectedCards;
+    currentPage: number;
   }
 
   export interface ICard {
@@ -46,5 +48,7 @@ declare global {
     startDate: string;
     endDate: string;
     description: string;
+    selectCard?: (cardId: number) => void;
+    unselectCard?: (cardId: number) => void;
   }
 }
