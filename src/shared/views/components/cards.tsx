@@ -4,7 +4,7 @@ import Button from '../../controls/button';
 
 const namespace = 'app-cards';
 
-const Cards = ({ cards, selectedCards, removeSelectedCards }: ICards) => {
+const Cards = ({ cards, selectedCards, removeSelectedCards }: any) => {
   if (!cards || cards.length < 1) {
     return (
       <div className={`${namespace}__empty-state`}>
@@ -36,11 +36,5 @@ const Cards = ({ cards, selectedCards, removeSelectedCards }: ICards) => {
     </>
   );
 };
-
-interface ICards {
-  cards: ICard[];
-  selectedCards?: number[];
-  removeSelectedCards: () => void;
-}
 
 export default Cards;

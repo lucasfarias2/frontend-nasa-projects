@@ -15,9 +15,9 @@ declare global {
   }
 
   export interface IInitialState {
-    cards: ICard[];
-    selectedCards: TSelectedCards;
-    currentPage: number;
+    cards?: ICard[];
+    selectedCards?: TSelectedCards;
+    currentPage?: number;
   }
 
   export interface IComponent {
@@ -36,9 +36,9 @@ declare global {
   }
 
   export interface IState {
-    cards: ICard[];
+    cards?: ICard[];
     selectedCards?: TSelectedCards;
-    currentPage: number;
+    currentPage?: number;
   }
 
   export interface ICard {
