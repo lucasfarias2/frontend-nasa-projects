@@ -36,3 +36,6 @@
 - If key starts not working please try `DEMO_KEY` as key to test the application.
 
 ## Screenshots
+
+|![main](https://i.imgur.com/u9HdOor.png)|![selected](https://i.imgur.com/yqUD0Oi.png)|
+|--|--|
