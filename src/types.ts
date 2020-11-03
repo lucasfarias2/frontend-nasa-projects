@@ -22,6 +22,7 @@ declare global {
   export interface IComponent {
     onMouseEnter?: () => void;
     onMouseLeave?: () => void;
+    onClick?: () => void;
     children?: React.ReactNode;
     className?: string;
     initialState?: IInitialState;

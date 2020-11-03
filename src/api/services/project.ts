@@ -11,7 +11,7 @@ class ProjectService {
     this.API_KEY = 'FpvQGkOQ3wInbQRk0Cuos9FMuCcdmK417K1uHzoq';
   }
 
-  public async fetchProjects(offset: number = 0, limit: number = 5) {
+  public async fetchProjects(offset: number = 0, limit: number = 6) {
     // const response = await axios.get(`${this.API_URL}/projects`, {
     //   params: { updatedSince: '2020-10-30', api_key: this.API_KEY },
     // });

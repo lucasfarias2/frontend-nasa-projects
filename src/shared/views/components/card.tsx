@@ -1,5 +1,7 @@
 import React from 'react';
-import Card from '../../widgets/card/card';
+import classnames from 'classnames';
+import SelectBox from '../../controls/select-box';
+import Container from '../../widgets/container/container';
 import CardService from '../../../server/services/card';
 
 const namespace = 'app-cards__card';
@@ -11,6 +13,7 @@ const FeaturedCard = (card: ICard) => {
 
   const [cardModel, setCardModel] = React.useState(null);
   const [showSelectBox, setShowSelectBox] = React.useState(false);
+  const [isCardSelected, setIsCardSelected] = React.useState(false);
 
   const fetchCardDetails = async (id: number) => {
     const cardResponse = await CardService.fetchCard(card.id);
@@ -31,9 +34,18 @@ const FeaturedCard = (card: ICard) => {
     setShowSelectBox(false);
   };
 
+  const handleOnSelect = () => {
+    setIsCardSelected(!isCardSelected);
+  };
+
   return (
-    <Card className={namespace} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
-      {showSelectBox ? <div>Select box</div> : null}
+    <Container
+      className={classnames(namespace, { [`${namespace}--selected`]: isCardSelected })}
+      onClick={handleOnSelect}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+    >
+      <SelectBox selected={isCardSelected} onClick={handleOnSelect} />
       {cardModel ? (
         <>
           {cardModel.title ? <h1>{cardModel.title}</h1> : null}
@@ -43,7 +55,7 @@ const FeaturedCard = (card: ICard) => {
         </>
       ) : null}
       <p>Last updated: {card.lastUpdated}</p>
-    </Card>
+    </Container>
   );
 };
 

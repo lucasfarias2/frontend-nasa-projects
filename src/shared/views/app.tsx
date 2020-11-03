@@ -6,6 +6,7 @@ import Style from '../modules/style';
 import createStore from '../../client/utils/create-store';
 import reducers from '../../client/reducers/app';
 import Cards from './components/cards';
+import Paginator from './components/paginator';
 
 const App = ({ initialState }: IComponent) => {
   return (
@@ -15,6 +16,7 @@ const App = ({ initialState }: IComponent) => {
       <Script src={`app`} />
       <h1>NASA Projects</h1>
       <Cards cards={initialState.cards} />
+      <Paginator pages={5} />
     </Provider>
   );
 };

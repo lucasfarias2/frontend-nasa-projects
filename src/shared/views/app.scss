@@ -1,7 +1,8 @@
 $app-prefix: 'app';
 $ui-prefix: 'ui';
 
-@import '../widgets/card/card';
+@import '../controls/select-box';
+@import '../widgets/container/container';
 
 * {
   font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
@@ -21,12 +22,37 @@ body {
   row-gap: 16px;
 
   &__card {
+    position: relative;
     min-height: 200px;
+
+    &--selected {
+      box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.1);
+    }
 
     &--loading {
       p {
         color: grey;
       }
     }
+  }
+}
+
+.#{$app-prefix}-paginator {
+  display: flex;
+  padding: 0;
+  width: min-content;
+  margin: 16px auto;
+
+  &__page-btn {
+    border-right: 1px solid #e1e4e8;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__page-btn:last-child {
+    border-right: 0;
   }
 }

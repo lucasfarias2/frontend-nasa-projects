@@ -1,0 +1,20 @@
+.#{$ui-prefix}-select-box {
+  height: 24px;
+  width: 24px;
+  border: 1px solid #a3a5a8;
+  background-color: #fff;
+  float: right;
+  border-radius: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.#{$ui-prefix}-select-box__check {
+  background-color: #e05757;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+}
