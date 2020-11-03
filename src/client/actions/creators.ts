@@ -20,5 +20,3 @@ export const removeSelectedCards = async (dispatch: Dispatch) => {
     type: REMOVE_SELECTED_CARDS,
   });
 };
-
-// export const navigateToPage

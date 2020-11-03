@@ -1,6 +1,4 @@
 import axios from 'axios';
-// import data from '../../../data.json';
-// import data_project from '../../../data_project.json';
 
 class ProjectService {
   public API_URL: string;
