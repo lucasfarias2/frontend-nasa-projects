@@ -28,8 +28,8 @@
 
 ## API Endpoints
 
-`[GET] /api/cards?page=X`
-`[GET] /api/card/:id`
+- `[GET] /api/cards?page=X`
+- `[GET] /api/card/:id`
 
 ## API Key notes
 
