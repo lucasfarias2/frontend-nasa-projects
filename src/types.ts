@@ -43,12 +43,12 @@ declare global {
 
   export interface ICard {
     id: number;
-    lastUpdated: string;
-    title: string;
-    status: string;
-    startDate: string;
-    endDate: string;
-    description: string;
+    lastUpdated?: string;
+    title?: string;
+    status?: string;
+    startDate?: string;
+    endDate?: string;
+    description?: string;
     selectCard?: (cardId: number) => void;
     unselectCard?: (cardId: number) => void;
   }
