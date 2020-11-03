@@ -6,7 +6,11 @@ const namespace = 'app-cards';
 
 const Cards = ({ cards, selectedCards, removeSelectedCards }: ICards) => {
   if (!cards || cards.length < 1) {
-    return <div>Empty State</div>;
+    return (
+      <div className={`${namespace}__empty-state`}>
+        Looks like you just ran out of cards :(. Refresh page or click next page to fetch more.
+      </div>
+    );
   }
 
   const handleOnRemoveCards = () => {
@@ -18,7 +22,11 @@ const Cards = ({ cards, selectedCards, removeSelectedCards }: ICards) => {
   return (
     <>
       <div>
-        {selectedCards.length > 0 ? <Button onClick={handleOnRemoveCards}>Remove selected cards</Button> : null}
+        {selectedCards.length > 0 ? (
+          <Button className={`${namespace}__remove-btn`} onClick={handleOnRemoveCards}>
+            Remove selected cards
+          </Button>
+        ) : null}
       </div>
       <section className={namespace}>
         {cards.map((card: ICard) => {

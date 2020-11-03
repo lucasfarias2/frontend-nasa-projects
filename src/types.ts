@@ -27,6 +27,7 @@ declare global {
     children?: React.ReactNode;
     className?: string;
     initialState?: IInitialState;
+    ref?: any;
   }
 
   export interface IAction {

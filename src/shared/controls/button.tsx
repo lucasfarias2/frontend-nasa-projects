@@ -1,10 +1,11 @@
 import React from 'react';
+import classnames from 'classnames';
 
 const namespace = 'ui-button';
 
-const Button = ({ children, onClick }: IComponent) => {
+const Button = ({ className, children, onClick }: IComponent) => {
   return (
-    <button className={namespace} onClick={onClick}>
+    <button className={classnames(namespace, className)} onClick={onClick}>
       {children}
     </button>
   );

@@ -7,8 +7,8 @@ class CardService {
     this.API_URL = 'http://localhost:8080/api';
   }
 
-  public async fetchCards() {
-    const response = await axios.get(`${this.API_URL}/cards`);
+  public async fetchCards(page: number) {
+    const response = await axios.get(`${this.API_URL}/cards`, { params: { page } });
 
     if (response.data) {
       return response.data;

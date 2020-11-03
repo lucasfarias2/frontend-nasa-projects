@@ -1,6 +1,6 @@
 import axios from 'axios';
-import data from '../../../data.json';
-import data_project from '../../../data_project.json';
+// import data from '../../../data.json';
+// import data_project from '../../../data_project.json';
 
 class ProjectService {
   public API_URL: string;
@@ -12,19 +12,27 @@ class ProjectService {
   }
 
   public async fetchProjects(offset: number = 0, limit: number = 6) {
-    // const response = await axios.get(`${this.API_URL}/projects`, {
-    //   params: { updatedSince: '2020-10-30', api_key: this.API_KEY },
-    // });
+    const response = await axios.get(`${this.API_URL}/projects`, {
+      params: { updatedSince: '2020-01-30', api_key: this.API_KEY },
+    });
 
-    // if (response.data && response.data.projects && response.data.projects.projects) {
-    return this.marshallProjects(data.projects, offset, limit);
-    // } else {
-    //   return [];
-    // }
+    if (response.data && response.data.projects && response.data.projects.projects) {
+      return this.marshallProjects(response.data.projects, offset, limit);
+    } else {
+      return [];
+    }
   }
 
   public async fetchProjectDetails(projectId: string) {
-    return this.marshallProjectDetails(data_project);
+    const response = await axios.get(`${this.API_URL}/projects/${projectId}`, {
+      params: { api_key: this.API_KEY },
+    });
+
+    if (response.data && response.data) {
+      return this.marshallProjectDetails(response.data);
+    } else {
+      return {};
+    }
   }
 
   private marshallProjects(projectsResponse: IProjectsResponse, offset: number, limit: number) {

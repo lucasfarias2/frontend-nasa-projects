@@ -16,7 +16,7 @@ const App = ({ initialState }: IComponent) => {
       <Script src={`app`} />
       <h1>NASA Projects</h1>
       <FeaturedCards cards={initialState.cards} selectedCards={initialState.selectedCards} />
-      <Paginator pages={5} />
+      <Paginator pages={5} currentPage={initialState.currentPage} />
     </Provider>
   );
 };

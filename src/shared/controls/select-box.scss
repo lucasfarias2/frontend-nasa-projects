@@ -1,7 +1,7 @@
 .#{$ui-prefix}-select-box {
   height: 24px;
   width: 24px;
-  border: 1px solid #a3a5a8;
+  border: 1px solid #ff7d7d;
   background-color: #fff;
   float: right;
   border-radius: 50%;
@@ -15,11 +15,12 @@
 .#{$ui-prefix}-select-box:hover {
   background-color: #ff7d7d;
   cursor: pointer;
+  border: none;
 }
 
 .#{$ui-prefix}-select-box__check {
   background-color: #ff6868;
-  height: 18px;
-  width: 18px;
+  height: 16px;
+  width: 16px;
   border-radius: 50%;
 }
